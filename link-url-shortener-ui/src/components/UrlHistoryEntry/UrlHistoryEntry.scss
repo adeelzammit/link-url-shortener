@@ -6,10 +6,14 @@
     .alias-header {
       font-weight: bold;
       font-size: 0.95em;
-      word-break: break-all;
     }
     .original-url-subheader {
       font-size: 0.775em;
+    }
+
+    .alias-header,
+    .original-url-subheader {
+      word-break: break-word;
     }
   }
 }

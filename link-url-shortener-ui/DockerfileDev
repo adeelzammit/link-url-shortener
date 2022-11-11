@@ -15,5 +15,3 @@ EXPOSE 3000
 
 # Run development build, note will be way slower for it to start
 ENTRYPOINT npm run start
-
-

@@ -9,7 +9,7 @@ dotenv_1.default.config();
 exports.INITIAL_REDIS_COUNTER_VALUE = { count: 1, increment: 10 };
 exports.GENERIC_ERROR_MESSAGE = "Could not fetch a shortURL, Please try again";
 exports.domainRegexExpression = /^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})$/;
-exports.aliasRegexExpression = /^[A-Za-z0-9 ]+$/;
+exports.aliasRegexExpression = /^(\d|\w|-|_)+$/;
 const setEnvironmentVariables = () => {
     const API_PORT = process.env.API_PORT || 8000;
     const API_HOSTNAME = process.env.API_HOSTNAME || "localhost";

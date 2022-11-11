@@ -9,7 +9,7 @@ export const GENERIC_ERROR_MESSAGE: string =
 export const domainRegexExpression: any =
   /^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})$/;
 
-export const aliasRegexExpression: any = /^[A-Za-z0-9]+$/;
+export const aliasRegexExpression: any = /^(\d|\w|-|_)+$/;
 
 export const setEnvironmentVariables = () => {
   const API_PORT: string | number = process.env.API_PORT || 8000;

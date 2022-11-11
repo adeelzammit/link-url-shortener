@@ -3,7 +3,7 @@ import * as yup from "yup";
 const domainRegexExpression: any =
   /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
-const aliasRegexExpression: any = /[A-Za-z0-9]+/;
+const aliasRegexExpression: any = /^(\d|\w|-|_)+$/;
 
 export const createShortURLFormSchema = yup.object().shape(
   {
@@ -25,7 +25,7 @@ export const createShortURLFormSchema = yup.object().shape(
             .min(5, "A minimum of 5 characters must be given")
             .test("Invalid alias", "Invalid alias", (val: any) => {
               const regex = new RegExp(aliasRegexExpression);
-              return !val.length || val?.match(regex);
+              return val?.trim().match(regex);
             });
         } else {
           return yup.string().notRequired();
