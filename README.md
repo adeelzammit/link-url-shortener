@@ -1,4 +1,4 @@
-# URL Shortner Code - Adeel Zammit
+# URL Shortener Code - Adeel Zammit
 
 ---
 
