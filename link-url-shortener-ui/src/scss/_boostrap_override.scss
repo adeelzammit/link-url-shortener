@@ -1,0 +1,15 @@
+@import "_colors";
+
+// Override bootstrap variables here
+$primary: $yellow;
+$offcanvas-horizontal-width: 500px;
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $red,
+  "light-theme": $white,
+  "dark-theme": $black,
+  "success": $green,
+);
+
+@import "~bootstrap/scss/bootstrap.scss";

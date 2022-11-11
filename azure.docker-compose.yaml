@@ -1,0 +1,92 @@
+version: "2.2"
+
+# https://docs.docker.com/compose/compose-file/compose-file-v2/
+services:
+  link-url-shortener-mongo:
+    image: mongo:latest
+    volumes:
+      - mongo-store:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: AzureDiamond
+      MONGO_INITDB_ROOT_PASSWORD: hunter2
+    # no --auth is needed here as the presence of username and password add this option automatically
+    command: mongod
+    networks:
+      - my-bridge-network
+    domainname: coolurlshorteneradeelzammit
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1g
+  link-url-shortener-redis:
+    image: linkurlshortener.azurecr.io/link-url-shortener-redis
+    ports:
+      - 6379:6379
+    networks:
+      - my-bridge-network
+    domainname: coolurlshorteneradeelzammit
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1g
+  link-url-shortener-api:
+    image: linkurlshortener.azurecr.io/link-url-shortener-api
+    ports:
+      - 8000:8000
+    environment:
+      API_PORT: 8000
+      UI_PORT: 3000
+      API_HOSTNAME: coolurlshorteneradeelzammit.australiaeast.azurecontainer.io
+      UI_HOSTNAME: coolurlshorteneradeelzammit.australiaeast.azurecontainer.io
+      MONGO_PORT: 27017
+      MONGO_HOSTNAME: link-url-shortener-mongo
+      MONGO_USERNAME: AzureDiamond
+      MONGO_PASSWORD: hunter2
+      MONGO_DB_NAME: link-url-shortener
+      REDIS_PORT: 6379
+      REDIS_HOSTNAME: link-url-shortener-redis
+    depends_on:
+      - link-url-shortener-mongo
+      - link-url-shortener-redis
+    networks:
+      - my-bridge-network
+    domainname: coolurlshorteneradeelzammit
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1g
+  link-url-shortener-ui:
+    image: linkurlshortener.azurecr.io/link-url-shortener-ui
+    ports:
+      - 3000:3000
+    networks:
+      - my-bridge-network
+    depends_on:
+      - link-url-shortener-api
+    domainname: coolurlshorteneradeelzammit
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1g
+volumes:
+  mongo-store:
+    driver: azure_file
+    driver_opts:
+      share_name: linkshortenerfilesharemongo
+      storage_account_name: linkurlshortenerstorage
+  redis-store:
+    driver: azure_file
+    driver_opts:
+      share_name: linkshortenerfileshareredis
+      storage_account_name: linkurlshortenerstorage
+
+networks:
+  my-bridge-network:
+    external:
+      name: my-bridge-network

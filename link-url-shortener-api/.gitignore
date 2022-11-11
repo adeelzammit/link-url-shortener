@@ -1,0 +1,3 @@
+node_modules
+#  Commented out for docker container check
+# dist

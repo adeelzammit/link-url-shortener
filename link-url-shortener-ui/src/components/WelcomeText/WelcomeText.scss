@@ -1,0 +1,12 @@
+@import "../../scss/breakpoints";
+
+.welcome-text-ctr {
+  text-align: center;
+}
+
+// lg up breakpoint
+@media only screen and (min-width: $lg-breakpoint) {
+  .welcome-text-ctr {
+    text-align: left;
+  }
+}

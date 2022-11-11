@@ -1,0 +1,36 @@
+@import "../../scss/colors";
+
+$btn-close-width: 1em;
+
+.history-off-canvas-ctr {
+  color: var(--textThemeColor1);
+  background-color: var(--bgThemeColor2);
+  transition: background-color 0.5s ease;
+  .history-off-canvas-top-section {
+    background-color: $yellow;
+    border-bottom: 1px solid var(--borderOutline);
+
+    .top-section-main-text {
+      color: $black;
+    }
+  }
+
+  .btn.btn-primary {
+    color: $white !important;
+  }
+  .history-off-canvas-header {
+    align-items: center;
+    justify-content: space-between;
+
+    .btn.btn-primary {
+      background: $blue100;
+      &:hover {
+        background: $blue300;
+      }
+    }
+
+    .offcanvas-title {
+      width: 100%;
+    }
+  }
+}

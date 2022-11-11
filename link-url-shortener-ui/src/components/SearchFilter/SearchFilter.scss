@@ -1,0 +1,38 @@
+@import "../../scss/colors";
+
+.search-icon-label,
+.search-clear-btn {
+  padding: 0 12px;
+  > svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.search-input.form-control {
+  line-height: 1.7;
+
+  // turn off bootstrap form control focused outline
+  &:focus {
+    border-color: $grey400 !important;
+    box-shadow: none !important;
+  }
+}
+
+.search-icon-label {
+  background: $grey500;
+  color: $black;
+}
+
+.search-clear-btn {
+  background: $blue100;
+  &:hover {
+    background: $blue300;
+  }
+  > svg {
+    color: $white;
+  }
+  border: $blue100;
+  border-left: transparent;
+  cursor: pointer;
+}

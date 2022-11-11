@@ -1,0 +1,13 @@
+@import "../../scss/light-dark-theme";
+
+.theme-btn-ctr {
+  .theme-check-btn {
+    input {
+      background-color: var(--bgThemeColor2) !important;
+      border: 1px solid var(--bgThemeColor2) !important;
+    }
+  }
+  > svg {
+    min-width: 25px;
+  }
+}

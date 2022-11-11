@@ -1,0 +1,45 @@
+@import "../../../../scss/light-dark-theme";
+
+.create-short-urlform-ctr {
+  width: 72%;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px;
+  background: var(--bgThemeColor1);
+  box-shadow: 0px 0px 5px $grey700;
+  border-radius: 10px;
+
+  .form-control:disabled {
+    background: var(--disabledInput);
+    cursor: not-allowed;
+  }
+
+  input {
+    line-height: 2;
+  }
+  .common-field-component-group {
+    min-height: 110px;
+  }
+
+  .form-label {
+    text-align: left;
+    width: 100%;
+    svg {
+      padding-right: 5px;
+      font-size: 1.1em;
+    }
+  }
+
+  .submit-btn {
+    font-size: 1.1em;
+  }
+}
+
+.agreement-txt-ctr {
+  width: 72%;
+  padding: 10px;
+  margin: 0 auto;
+}

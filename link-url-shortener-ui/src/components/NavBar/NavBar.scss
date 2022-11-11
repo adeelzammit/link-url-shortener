@@ -1,0 +1,52 @@
+@import "../../scss/colors";
+@import "../../scss/breakpoints";
+
+.app-navbtr-ctr {
+  .brand-name-font {
+    font-family: monospace;
+    font-weight: 900;
+  }
+
+  .brand-name-font-link {
+    font-size: 1.7em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // for navbar option fix
+  .navbar-options {
+    justify-content: center;
+
+    .nav-item-choice {
+      color: $white;
+      display: inline-block;
+      font-size: 0.9em;
+      font-weight: 500;
+      padding: 10px 14px;
+      text-align: center;
+      background: $blue100;
+      text-decoration: none;
+      transition: all 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        background: $blue300;
+      }
+      &:first-child {
+        border-radius: 5px 0px 0px 5px;
+      }
+      &:last-child {
+        border-radius: 0px 5px 5px 0px;
+      }
+    }
+  }
+
+  // md up breakpoint
+  @media only screen and (min-width: $md-breakpoint) {
+    .navbar-options {
+      justify-content: flex-end;
+    }
+  }
+}

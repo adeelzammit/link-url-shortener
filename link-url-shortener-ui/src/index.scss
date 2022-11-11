@@ -1,0 +1,52 @@
+@import "./scss/main";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Fira Sans", "Montserrat",
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+body,
+#root {
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  min-height: 50px;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.required-field-span,
+.server-error-message,
+.formik-error-message {
+  color: $red;
+}
+
+.server-error-message,
+.formik-error-message {
+  margin-top: 5px;
+  text-align: left;
+  margin-left: 2px;
+}
