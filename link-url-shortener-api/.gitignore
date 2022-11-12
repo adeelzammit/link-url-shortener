@@ -1,4 +1,3 @@
-# Docker having issues with installing cookie-parser when fetching from git clone
-# node_modules
+node_modules
 #  Commented out for docker container check
 # dist

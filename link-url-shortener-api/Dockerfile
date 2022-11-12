@@ -15,5 +15,5 @@ RUN npm install cookie-parser --save
 EXPOSE 8000
 
 # Run container
-RUN npm run build
+# RUN npm run build
 ENTRYPOINT npm run start
