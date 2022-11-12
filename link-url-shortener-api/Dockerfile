@@ -9,6 +9,7 @@ COPY . /app
 
 # Install relevant packages
 RUN npm install 
+RUN npm install cookie-parser --save
 
 # Tells the docker inside the container what ports the application can expose. 
 EXPOSE 8000
