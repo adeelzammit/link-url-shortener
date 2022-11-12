@@ -4,6 +4,8 @@
 
 ## Intro/My Thoughts
 
+- Thank you, it was really fun getting to use my knowledge 🙂. If there are any issues regarding anything, please reach out.
+
 - This application can be viewed in one of two ways:
   1. Locally via docker and docker compose
   2. Through Azure ACI deployed containers (Visit: http://coolurlshorteneradeelzammit.australiaeast.azurecontainer.io:3000/)
