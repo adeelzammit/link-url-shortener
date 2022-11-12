@@ -4,8 +4,6 @@
 
 ## Intro/My Thoughts
 
-- Thank you, it was really fun getting to use my knowledge 🙂. If there are any issues regarding anything, please reach out.
-
 - This application can be viewed in one of two ways:
   1. Locally via docker and docker compose
   2. Through Azure ACI deployed containers (Visit: http://coolurlshorteneradeelzammit.australiaeast.azurecontainer.io:3000/)
@@ -28,10 +26,13 @@ docker compose -f local.docker-compose.yaml up -d
 ### 1.b Plan B:
 
 ```
+cd link-url-shortener-ui
+npm install
+cd ..
 docker compose -f local-ver-2.docker-compose.yaml up -d
 ```
 
-- NOTE: This version, it is considerably slower for the UI to set up (as it is running on the development setting vs production setting), but it will work. It will take roughly ~2-3 minutes for the development instance of the React docker container to run
+- NOTE: This version, it is considerably slower for the UI to set up (as it is running on the development setting vs production setting), but it will work. It will take roughly ~3-5 minutes for the development instance of the React docker container to run
 
 ## 2. Via Azure ACI Deployed containers
 
