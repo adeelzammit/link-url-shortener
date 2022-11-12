@@ -13,8 +13,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: hunter2
     # no --auth is needed here as the presence of username and password add this option automatically
     command: mongod
-    networks:
-      - my-bridge-network
 
   link-url-shortener-redis:
     build:
@@ -24,8 +22,6 @@ services:
       - 6379:6379
     environment:
       - REDIS_REPLICATION_MODE=master
-    networks:
-      - my-bridge-network
 
   link-url-shortener-mongo-express:
     image: mongo-express:latest
@@ -36,11 +32,8 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: AzureDiamond
       ME_CONFIG_MONGODB_ADMINPASSWORD: hunter2
-      # ME_CONFIG_MONGODB_SERVER: localhost
       ME_CONFIG_MONGODB_SERVER: link-url-shortener-link-url-shortener-mongo-1
       ME_CONFIG_MONGODB_ENABLE_ADMIN: true
-    networks:
-      - my-bridge-network
     depends_on:
       - link-url-shortener-mongo
 
@@ -68,8 +61,6 @@ services:
     depends_on:
       - link-url-shortener-mongo
       - link-url-shortener-redis
-    networks:
-      - my-bridge-network
 
   link-url-shortener-ui:
     build:
@@ -79,14 +70,7 @@ services:
       - ./link-url-shortener-ui:/app
     ports:
       - 3000:3000
-    networks:
-      - my-bridge-network
 
 volumes:
   link_url_shortener_db_store: {}
   redis_store: {}
-
-networks:
-  my-bridge-network:
-    external:
-      name: my-bridge-network

@@ -13,8 +13,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: hunter2
     # no --auth is needed here as the presence of username and password add this option automatically
     command: mongod
-    networks:
-      - my-bridge-network
     domainname: coolurlshorteneradeelzammit
     deploy:
       resources:
@@ -25,8 +23,6 @@ services:
     image: linkurlshortener.azurecr.io/link-url-shortener-redis
     ports:
       - 6379:6379
-    networks:
-      - my-bridge-network
     domainname: coolurlshorteneradeelzammit
     deploy:
       resources:
@@ -52,8 +48,6 @@ services:
     depends_on:
       - link-url-shortener-mongo
       - link-url-shortener-redis
-    networks:
-      - my-bridge-network
     domainname: coolurlshorteneradeelzammit
     deploy:
       resources:
@@ -64,8 +58,6 @@ services:
     image: linkurlshortener.azurecr.io/link-url-shortener-ui
     ports:
       - 3000:3000
-    networks:
-      - my-bridge-network
     depends_on:
       - link-url-shortener-api
     domainname: coolurlshorteneradeelzammit
@@ -85,8 +77,3 @@ volumes:
     driver_opts:
       share_name: linkshortenerfileshareredis
       storage_account_name: linkurlshortenerstorage
-
-networks:
-  my-bridge-network:
-    external:
-      name: my-bridge-network
